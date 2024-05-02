@@ -28,6 +28,24 @@ $ python ./run_ner.py \
 --overwrite_output_dir
 ```
 
+### Baseline
+All baselines used in our article are publicly available on Huggingface's model library
+1. PhoBERT
++ https://huggingface.co/vinai/phobert-base
++ https://huggingface.co/vinai/phobert-large
+2. XLM-R
++ https://huggingface.co/FacebookAI/xlm-roberta-base
++ https://huggingface.co/FacebookAI/xlm-roberta-large
+3. ViDeBERTa
++ https://huggingface.co/Fsoft-AIC/videberta-base
++ https://huggingface.co/Fsoft-AIC/videberta-xsmall
+4. ViPubMedDeBERTa
++ https://huggingface.co/manhtt-079/vipubmed-deberta-base
++ https://huggingface.co/manhtt-079/vipubmed-deberta-xsmall
+5. ViHealthBERT
++ https://huggingface.co/demdecuong/vihealthbert-base-word
++ https://huggingface.co/demdecuong/vihealthbert-base-syllable
+
 ## Evaluation
 ```bash
 $ python ./run_ner.py \
