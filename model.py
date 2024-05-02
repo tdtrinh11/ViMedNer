@@ -246,54 +246,6 @@ class BertCRF(PreTrainedModel):
 
         return loss, tags
 
-        # outputs = (logits,) + outputs[2:]  # add hidden states and attention if they are here
-        # if labels is not None:
-        #     # loss_fct = nn.CrossEntropyLoss()
-        #     pad_mask = (labels != pad_token_label_id)
-
-        #     # Only keep active parts of the loss
-        #     if attention_mask is not None:
-        #         # active_loss = attention_mask.view(-1) == 1
-        #         # active_logits = logits.view(-1, self.num_labels)[active_loss]
-        #         # active_labels = labels.view(-1)[active_loss]
-        #         loss_mask = ((attention_mask == 1) & pad_mask)
-        #     else:
-        #         # loss = loss_fct(logits.view(-1, self.num_labels), labels.view(-1))
-        #         loss_mask = ((torch.ones(logits.shape) == 1) & pad_mask)
-
-        #     crf_labels, crf_mask = to_crf_pad(labels, loss_mask, pad_token_label_id)
-        #     crf_logits, _ = to_crf_pad(logits, loss_mask, pad_token_label_id)
-
-        #     loss = self.crf.neg_log_likelihood(crf_logits, crf_mask, crf_labels)
-        #     # removing mask stuff from the output path is done later in my_crf_ner but it should be kept away
-        #     # when calculating loss
-        #     best_path = self.crf(crf_logits, crf_mask)  # (torch.ones(logits.shape) == 1)
-        #     best_path = unpad_crf(best_path, crf_mask, labels, pad_mask)
-        #     outputs = (loss,) + outputs + (best_path,)
-        # else:
-        #     # removing mask stuff from the output path is done later in my_crf_ner but it should be kept away
-        #     # when calculating loss
-        #     if attention_mask is not None:
-        #         mask = (attention_mask == 1)  # & (labels!=-100))
-        #     else:
-        #         mask = torch.ones(logits.shape).bool()  # (labels!=-100)
-        #     crf_logits, crf_mask = to_crf_pad(logits, mask, pad_token_label_id)
-        #     crf_mask = crf_mask.sum(axis=2) == crf_mask.shape[2]
-        #     best_path = self.crf(crf_logits, crf_mask)
-        #     temp_labels = torch.ones(mask.shape) * pad_token_label_id
-        #     best_path = unpad_crf(best_path, crf_mask, temp_labels, mask)
-        #     outputs = outputs + (best_path,)
-
-        # return outputs
-    
-
-    # -*- coding: utf-8 -*-
-# @Author: Jie Yang
-# @Date:   2017-12-04 23:19:38
-# @Last Modified by:   Jie Yang,     Contact: jieynlp@gmail.com
-# @Last Modified time: 2018-05-27 22:48:17
-# Modified from original https://github.com/jiesutd/LatticeLSTM/blob/master/model/crf.py
-# Compute log sum exp in a numerically stable way for the forward algorithm
 def log_sum_exp(vec, m_size):
     """
     calculate log of exp sum
