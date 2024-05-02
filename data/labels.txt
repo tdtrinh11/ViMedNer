@@ -1,0 +1,11 @@
+B-bien_phap_chan_doan
+B-bien_phap_dieu_tri
+B-nguyen_nhan_benh
+B-ten_benh
+B-trieu_chung_benh
+I-bien_phap_chan_doan
+I-bien_phap_dieu_tri
+I-nguyen_nhan_benh
+I-ten_benh
+I-trieu_chung_benh
+O
